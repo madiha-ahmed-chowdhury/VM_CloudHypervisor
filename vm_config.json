@@ -1,0 +1,53 @@
+{
+  "vm_config": {
+    "kernel": {
+      "path": "./vmlinux"
+    },
+    "cmdline": {
+      "args": "console=hvc0 root=/dev/vda rw init=/init quiet"
+    },
+    "disks": [
+      {
+        "path": "./rootfs.img",
+        "readonly": false,
+        "direct": true
+      }
+    ],
+    "net": [
+      {
+        "tap": "tap0",
+        "ip": "192.168.1.2",
+        "mask": "255.255.255.0",
+        "mac": "12:34:56:78:90:ab"
+      }
+    ],
+    "cpus": {
+      "boot_vcpus": 2,
+      "max_vcpus": 4
+    },
+    "memory": {
+      "size": "256M",
+      "shared": false,
+      "hugepages": false
+    },
+    "balloon": {
+      "size": "128M"
+    },
+    "devices": [
+      {
+        "path": "/dev/kvm"
+      }
+    ],
+    "vsock": {
+      "cid": 3,
+      "socket": "/tmp/vm.vsock"
+    },
+    "serial": {
+      "mode": "Tty"
+    },
+    "console": {
+      "mode": "Off"
+    },
+    "api_socket": "/tmp/cloud-hypervisor-api.sock"
+  }
+}
